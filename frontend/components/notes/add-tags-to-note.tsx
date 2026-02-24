@@ -33,7 +33,6 @@ const AddTagsToNote = ( { id, currentTags }: Props ) => {
   const { data, loading: fetchingTags } = useQuery( GET_ALL_TAGS_FOR_DROPDOWN )
   const [ addTag, { loading: addingTag } ] = useMutation( ADD_TAG_TO_NOTE )
 
-  // Extract string IDs to easily filter out tags the note already has
   const currentTagNames = currentTags.map( tag => tag.id )
   const allAvailableTags = data?.getAllTags?.map( tag => tag.id ) || []
   const selectableTags = allAvailableTags.filter( tag => !currentTagNames.includes( tag ) )

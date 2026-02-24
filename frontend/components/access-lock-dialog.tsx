@@ -19,7 +19,6 @@ import { toast } from "sonner"
 import { graphql } from "@/gql"
 import { useLazyQuery, useMutation } from "@apollo/client/react"
 
-// 1. Query to fetch locked notes (requires password)
 const ACCESS_LOCKED_NOTES = graphql( `
     query AccessLockedNotes($password: String!) {
         accessLockedNotes(lockedPassword: $password) {
@@ -31,7 +30,6 @@ const ACCESS_LOCKED_NOTES = graphql( `
     }
 ` )
 
-// 2. Mutation to unlock a note directly from the dialog
 const UNLOCK_NOTE_FROM_DIALOG = graphql( `
     mutation UnlockNoteFromDialog($id: ID!) {
         lockNote(id: $id) {
@@ -51,12 +49,10 @@ const AccessLockDialog = () => {
     fetchPolicy: "network-only"
   } )
 
-  // Ensure the main sidebar updates if a note is unlocked
   const [ unlockNote ] = useMutation( UNLOCK_NOTE_FROM_DIALOG, {
     refetchQueries: [ 'GetNotes' ]
   } )
 
-  // Reset state whenever the dialog is closed for security
   React.useEffect( () => {
     if ( !open ) {
       setPassword( "" )
@@ -80,7 +76,6 @@ const AccessLockDialog = () => {
     }
   }
 
-  // Safely grab the notes and filter out any we optimistically unlocked
   const notes = data?.accessLockedNotes?.filter( n => n.isLocked ) || []
 
   const handleUnlock = async ( e: React.MouseEvent, noteId: string ) => {
@@ -92,7 +87,7 @@ const AccessLockDialog = () => {
           lockNote: {
             __typename: "Note",
             id: noteId,
-            isLocked: false // Instantly hides it from the locked list
+            isLocked: false
           }
         }
       } )
@@ -111,7 +106,6 @@ const AccessLockDialog = () => {
         </Button>
       </DialogTrigger>
 
-      {/* Remove padding if authenticated so the Command component touches the edges */ }
       <DialogContent className={ isAuthenticated ? "p-0 overflow-hidden max-w-xl" : "" }>
 
         { !isAuthenticated ? (

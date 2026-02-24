@@ -3,9 +3,7 @@
 import React from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image"
-// import { Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
-// import NoteButtons from "@/components/notes/note-buttons"
 import { graphql } from "@/gql"
 import { useQuery } from "@apollo/client/react"
 import { Spinner } from "@/components/ui/spinner";
@@ -33,10 +31,8 @@ const NotesList = () => {
   const searchParams = useSearchParams()
   const router = useRouter()
 
-  // Use your new absolute/relative environment variables
   const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8080"
 
-  // 1. Safely map URL params to your GraphQL Enums
   const filterParam = searchParams.get( "filter" ) || "all"
   const sortDirParam = ( searchParams.get( "sortDir" ) || "DESC" ).toUpperCase()
 
@@ -44,10 +40,9 @@ const NotesList = () => {
   const sortByEnum = sortByParam === "updatedAt" ? "UPDATED_AT" :
     sortByParam === "createdAt" ? "CREATED_AT" : "TITLE"
 
-  // 2. Build the GraphQL Filter Input
   const filterInput: any = {
     isTrashed: false,
-    isLocked: false // Assumes locked notes shouldn't appear in the main list
+    isLocked: false
   }
 
   if ( filterParam === "pinned" ) {
@@ -56,7 +51,6 @@ const NotesList = () => {
     filterInput.tagName = filterParam
   }
 
-  // 3. Fetch Data Automatically
   const { data, loading } = useQuery( GET_NOTES, {
     variables: {
       input: filterInput,
@@ -67,7 +61,6 @@ const NotesList = () => {
     }
   } )
 
-  // The backend already sorts pinned notes to the top via your finalSort logic
   const displayedNotes = data?.getNotes || []
 
   return (

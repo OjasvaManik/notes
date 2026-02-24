@@ -23,8 +23,6 @@ const TagsView = ( { initialTags }: Props ) => {
   return (
     <div className="flex flex-col lg:flex-row h-[90vh] gap-4">
 
-      {/* --- TAGS LIST AREA --- */ }
-      {/* Mobile: Top, Fixed Height | Desktop: Left, Full Height */ }
       <div className="
         flex flex-col gap-2
         h-62.5 lg:h-full
@@ -61,10 +59,8 @@ const TagsView = ( { initialTags }: Props ) => {
       <Separator className="lg:hidden"/>
       <Separator orientation="vertical" className="hidden lg:block h-full"/>
 
-      {/* --- ACTION AREA --- */ }
       <div className="flex-1 flex flex-col gap-8 p-4">
 
-        {/* Search Section */ }
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Search Tags</h3>
           <div className="relative">
@@ -80,7 +76,6 @@ const TagsView = ( { initialTags }: Props ) => {
 
         <Separator/>
 
-        {/* Add Tag Section */ }
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Create New Tag</h3>
           <p className="text-sm text-muted-foreground">

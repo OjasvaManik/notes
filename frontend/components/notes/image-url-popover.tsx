@@ -80,7 +80,6 @@ const ImageUrlPopover = ( { noteId }: Props ) => {
           </PopoverDescription>
         </PopoverHeader>
 
-        {/* Input and Save Button Area */ }
         <div className="flex items-center gap-2 mt-4">
           <Input
             placeholder="Paste image URL..."

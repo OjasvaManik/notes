@@ -46,7 +46,6 @@ const TitleBar = ( { title, noteId }: Props ) => {
       } )
       toast.success( "Title updated" )
 
-      // Refresh the route so the server-rendered NavBar picks up the new title
       router.refresh()
     } catch ( error ) {
       console.error( error )

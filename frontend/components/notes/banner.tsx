@@ -11,15 +11,13 @@ type Props = {
 }
 
 const Banner = ( {
-                   bannerUrl, // 1. Added to destructured props
+                   bannerUrl,
                    noteId,
                    isPinned,
                    isLocked
                  }: Props ) => {
-  // 2. Updated to match the backend URL used in your other components
   const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8080"
 
-  // 3. Resolve the unified bannerUrl
   const bannerSrc = bannerUrl?.startsWith( 'http' )
     ? bannerUrl
     : bannerUrl ? `${ baseUrl }${ bannerUrl }` : null

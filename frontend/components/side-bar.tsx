@@ -41,10 +41,8 @@ const SideBar = async () => {
           <SheetDescription>Select filters to organize your view.</SheetDescription>
         </SheetHeader>
 
-        {/* Removed px-6 from this parent container */ }
         <div className='w-full space-y-2 flex flex-col h-full'>
 
-          {/* Group: Elements that need px-6 */ }
           <div className="px-6 space-y-2">
             <div className='grid grid-cols-2 w-full gap-1'>
               <CreateNotesButton/>

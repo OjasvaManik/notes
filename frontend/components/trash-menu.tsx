@@ -46,7 +46,6 @@ export function TrashMenu() {
     fetchPolicy: "network-only"
   } )
 
-  // Added refetchQueries here to update the Sidebar automatically
   const [ restoreNote ] = useMutation( RESTORE_NOTE, {
     refetchQueries: [ 'GetNotes' ]
   } )
@@ -70,7 +69,6 @@ export function TrashMenu() {
         }
       } );
       toast.success( "Note removed from trash" );
-      // router.refresh() is removed as Apollo now handles the data sync
     } catch ( error ) {
       console.error( "Failed to restore note", error );
       toast.error( "Failed to restore note" );

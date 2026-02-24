@@ -23,19 +23,17 @@ const SearchNotes = () => {
   const [ open, setOpen ] = React.useState( false )
   const router = useRouter()
 
-  // Apollo handles the fetching automatically, but only when 'open' is true
   const { data, loading } = useQuery( GET_NOTES_FOR_SEARCH, {
     variables: {
       input: {
         isTrashed: false,
-        isLocked: false // Assumes locked notes shouldn't appear in a standard search
+        isLocked: false
       }
     },
     skip: !open,
-    fetchPolicy: "network-only" // Ensures you always search against fresh data
+    fetchPolicy: "network-only"
   } )
 
-  // Safely fallback to an empty array
   const notes = data?.getNotes || []
 
   return (

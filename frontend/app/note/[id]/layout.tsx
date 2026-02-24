@@ -3,7 +3,6 @@ import React from "react";
 import { graphql } from "@/gql";
 import { query } from "@/providers/apollo-server";
 
-// Define a leaner query just for the layout requirements
 const GET_NOTE_HEADER = graphql( `
     query GetNoteHeader($id: String!) {
         getNote(id: $id) {

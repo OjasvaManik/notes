@@ -8,7 +8,6 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { Cancel01Icon } from "@hugeicons/core-free-icons"
 import { useRouter } from "next/navigation";
 
-// Note: I added the '!' to String! assuming your backend requires a non-null string
 const DELETE_TAG = graphql( `
     mutation DeleteTag($tagName: String) {
         deleteTag(tagName: $tagName)

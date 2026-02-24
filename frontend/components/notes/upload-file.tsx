@@ -42,10 +42,8 @@ const UploadFile = ( { noteId }: Props ) => {
         throw new Error( errorData.error || `Server error: ${ res.status }` );
       }
 
-      // 3. Parse the backend response to get the new file URL
       const responseData = await res.json()
 
-      // 4. Manually tell Apollo that this specific Note's bannerUrl has changed
       client.cache.modify( {
         id: client.cache.identify( { __typename: 'Note', id: noteId } ),
         fields: {

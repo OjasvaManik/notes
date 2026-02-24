@@ -15,7 +15,6 @@ type Props = {
   }>;
 };
 
-// 1. Fixed codegen syntax and added emoji
 const GET_NOTE = graphql( `
     query GetNote($id: String!) {
         getNote(id: $id) {
@@ -39,7 +38,6 @@ const GET_NOTE = graphql( `
 const NotePage = async ( { params }: Props ) => {
   const { id } = await params;
 
-  // 2. Execute server-side Apollo query
   const { data, error } = await query( {
     query: GET_NOTE,
     variables: { id }
@@ -55,7 +53,6 @@ const NotePage = async ( { params }: Props ) => {
     ? JSON.parse( note.content )
     : undefined
 
-  // Strip out any potential nulls inside the array and cast to the exact expected type
   const validTags = ( note.tags?.filter( tag => tag !== null ) || [] ) as { id: string }[];
 
   return (

@@ -46,8 +46,5 @@ class NoteEntity(
 	) : BaseTimeEntity()
 
 interface NoteRepo : JpaRepository<NoteEntity, UUID>, JpaSpecificationExecutor<NoteEntity> {
-	fun findAllByIsTrashed(isTrashed: Boolean): List<NoteEntity>
 	fun findAllByIsLocked(isLocked: Boolean): List<NoteEntity>
-	fun findAllByIsPinned(isPinned: Boolean): List<NoteEntity>
-	fun findAllByIsLockedFalseAndIsTrashedFalse(): List<NoteEntity>
 }

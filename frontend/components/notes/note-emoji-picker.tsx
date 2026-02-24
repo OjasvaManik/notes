@@ -49,7 +49,6 @@ const NoteEmojiPicker = ( { noteId, currentEmoji }: Props ) => {
 
       toast.success( "Emoji updated" )
 
-      // Refresh the route so the server-rendered NavBar picks up the new emoji
       router.refresh()
     } catch ( error ) {
       console.error( "Failed to update emoji:", error )
