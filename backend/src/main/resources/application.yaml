@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/note_db
+    username: note_user
+    password: note_password
+
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+
+app:
+  file:
+    storage:
+      path: /home/ojasva/Prod/notes/uploads
+  #      path: /home/ojasva/Projects/self-hosted-notes/uploads
+
+  notes:
+    locked:
+      password: msi$7154050

@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: note-db
+    restart: always
+    ports:                 # <--- ADD THIS BLOCK
+      - "5432:5432"        # <--- Maps host:5432 to container:5432
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ./data/db:/var/lib/postgresql/data

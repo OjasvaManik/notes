@@ -1,0 +1,15 @@
+extend type Query {
+    getAllTags: [Tag!]
+}
+
+extend type Mutation {
+    createTag(tagName: String): Tag!
+    deleteTag(tagName: String): Boolean!
+
+    addTagToNote(noteId: ID!, tagName: String!): String!
+    removeTagFromNote(noteId: ID!, tagName: String!): String!
+}
+
+type Tag {
+    id: String!
+}

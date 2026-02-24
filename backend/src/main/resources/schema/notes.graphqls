@@ -1,0 +1,63 @@
+type Query {
+    getNotes(input: NoteFilter, sort: NoteSortInput): [Note!]
+    getNote(id: String): Note!
+    accessLockedNotes(lockedPassword: String): [Note!]
+}
+
+type Mutation {
+    createNote: String!
+    updateNote(input: UpdateNoteInput!): Note!
+
+    pinNote(id: ID!): Note!
+    trashNote(id: ID!): Note!
+    lockNote(id: ID!): Note!
+
+    deleteBanner(id: ID!): Note!
+
+    deleteNote(id: ID!): Boolean
+}
+
+type Note {
+    id: ID!
+    title: String
+    content: String
+    bannerUrl: String
+    emoji: String
+    tags: [Tag]
+    isLocked: Boolean
+    isPinned: Boolean
+    isTrashed: Boolean
+    createdAt: String
+    updatedAt: String
+}
+
+input UpdateNoteInput {
+    id: ID!
+    title: String
+    content: String
+    emoji: String
+    bannerUrl: String
+}
+
+input NoteFilter {
+    isLocked: Boolean
+    isPinned: Boolean
+    isTrashed: Boolean
+    tagName: String
+}
+
+enum SortDirection {
+    ASC
+    DESC
+}
+
+enum NoteSortField {
+    UPDATED_AT
+    CREATED_AT
+    TITLE
+}
+
+input NoteSortInput {
+    field: NoteSortField!
+    direction: SortDirection!
+}
