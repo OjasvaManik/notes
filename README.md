@@ -1,7 +1,6 @@
 # Notes
 
-A high-performance, self-hosted personal note-taking application. Built for speed, deep customization, and a "
-minimalist-power" workflow.
+A high-performance, self-hosted personal note-taking application. Built for speed, deep customization, and a "minimalist-power" workflow.
 
 ## Tech Stack
 
