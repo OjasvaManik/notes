@@ -7,14 +7,14 @@ minimalist-power" workflow.
 
 ### Frontend
 
-- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
 - **State Management:** [Apollo Client](https://www.apollographql.com/docs/react/)
 - **Rich Text Editor:** [BlockNote](https://www.blocknotejs.org/) (Shadcn/UI integration)
 - **Icons:** [Hugeicons](https://hugeicons.com/) (React & Core Free)
 
 ### Backend
 
-- **Core:** [Spring Boot 3](https://spring.io/projects/spring-boot) (Kotlin)
+- **Core:** [Spring Boot 4](https://spring.io/projects/spring-boot) (Kotlin)
 - **GraphQL Engine:** [Netflix DGS Framework](https://netflix.github.io/dgs/)
 - **Processing:** [FFmpeg](https://ffmpeg.org/) (Server-side video-to-GIF conversion)
 - **Reverse Proxy:** [Caddy](https://caddyserver.com/) (Tailscale SSL)
@@ -34,3 +34,34 @@ minimalist-power" workflow.
 - **Smart Tagging:** Multi-select tagging system with real-time backend synchronization and quick-remove actions.
 - **Advanced Cache Sync:** Uses `optimisticResponse` and `refetchQueries` to ensure the Sidebar updates instantly
   without requiring manual page refreshes.
+
+# Home Screen
+
+## Dark
+
+![Home Screen](/screenshots/home.jpeg)
+
+## Light
+
+![Home Screen](/screenshots/home_light_mode.jpeg)
+
+# Sidebar
+
+## Desktop
+
+![Sidebar](/screenshots/sidebar_desktop.jpeg)
+
+## Mobile
+
+![Sidebar](/screenshots/sidebar_mobile.jpeg)
+
+# Notes
+
+## Desktop
+
+![Notes](/screenshots/note_desktop_1.jpeg)
+![Notes](/screenshots/note_desktop_2.jpeg)
+
+## Mobile
+
+![Notes](/screenshots/note_mobile_1.jpeg)
